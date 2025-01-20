@@ -12,3 +12,5 @@ sudo cp /var/cuda-repo-wsl-ubuntu-12-6-local/cuda-*-keyring.gpg /usr/share/keyri
 sudo apt update
 sudo apt install cuda-toolkit-12-6 -y
 
+echo 'export PATH=/usr/local/cuda/bin:$PATH' >> ~/.bashrc
+source ~/.bashrc
