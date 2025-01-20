@@ -12,5 +12,14 @@ sudo cp /var/cuda-repo-wsl-ubuntu-12-6-local/cuda-*-keyring.gpg /usr/share/keyri
 sudo apt update
 sudo apt install cuda-toolkit-12-6 -y
 
-echo 'export PATH=/usr/local/cuda/bin:$PATH' >> ~/.bashrc
+echo '
+export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+' >> ~/.bashrc
 source ~/.bashrc
+
+wget https://developer.download.nvidia.com/compute/cudnn/redist/cudnn/linux-x86_64/cudnn-linux-x86_64-9.6.0.74_cuda12-archive.tar.xz
+tar -xvf cudnn-*-archive.tar.xz
+sudo cp -f cudnn-*-archive/include/cudnn*.h /usr/local/cuda/include/
+sudo cp -f -P cudnn-*-archive/lib/libcudnn* /usr/local/cuda/lib64/
+sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
