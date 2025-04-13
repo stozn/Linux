@@ -3,6 +3,7 @@
 # 安装nvm
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 
+source ~/.bashrc
 nvm install --lts
 npm install -g nrm --registry=https://mirrors.tencent.com/npm/
 nrm test
