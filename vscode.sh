@@ -6,7 +6,7 @@ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/microsoft.gpg] https://packa
 
 sudo apt update
 sudo apt upgrade -y
-sudo apt install numlockx ca-certificates curl build-essential python3-pip gdb git cmake tmux baobab code -y
+sudo apt install numlockx ca-certificates curl build-essential gdb git cmake tmux baobab code -y
 
 sudo sed -i 's/^NUMLOCK=.*/NUMLOCK=on/' /etc/default/numlockx
 baobab
