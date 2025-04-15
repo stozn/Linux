@@ -1,18 +1,34 @@
 #!/bin/bash
 
-# git使用代理
-git config --global http.proxy http://172.31.176.1:7890
-git config --global https.proxy https://172.31.176.1:7890
+# 定义代理地址和端口
+PROXY_HOST="http://192.168.1.102:7890"
 
-# 取消使用代理
-git config --global --unset http.proxy
-git config --global --unset https.proxy
+# 函数：设置代理
+set_proxy() {
+    export http_proxy=$PROXY_HOST
+    export https_proxy=$PROXY_HOST
+    git config --global http.proxy http://192.168.1.102:7890
+    git config --global https.proxy https://192.168.1.102:7890
+    echo "代理已设置：$PROXY_HOST"
+}
 
+# 函数：取消代理
+unset_proxy() {
+    unset http_proxy
+    unset https_proxy
+    git config --global --unset http.proxy
+    git config --global --unset https.proxy
+    echo "代理已取消"
+}
 
-# 系统使用代理
-export http_proxy=http://172.31.176.1:7890
-export https_proxy=http://172.31.176.1:7890
-
-# 取消使用代理
-unset http_proxy
-unset https_proxy
+# 检查输入参数
+if [ "$1" == "on" ]; then
+    set_proxy
+elif [ "$1" == "off" ]; then
+    unset_proxy
+else
+    echo "用法: $0 {set|unset}"
+    echo "  on   - 设置代理"
+    echo "  off - 取消代理"
+    exit 1
+fi
