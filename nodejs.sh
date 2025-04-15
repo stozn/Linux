@@ -9,4 +9,6 @@ export NVM_DIR="$HOME/.nvm"
 nvm install --lts
 npm install -g nrm --registry=https://mirrors.tencent.com/npm/
 nrm test
-# nrm use 最低延迟的源 
+
+echo "执行 bash 或  source ~/.bashrc 使nvm生效"
+echo "nrm use 最低延迟的源 "
