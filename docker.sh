@@ -35,4 +35,4 @@ EOF
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 
-echo "重新登陆生效"
+echo "重新登录生效"
