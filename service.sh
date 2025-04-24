@@ -45,11 +45,17 @@ if [[ "$enable_restart" == "y" || "$enable_restart" == "Y" ]]; then
     restart_config="Restart=always\nRestartSec=${restart_sec}"
 fi
 
+# 是否需要网络
+read -p "服务是否需要网络支持？(y/n): " require_network
+network_config=""
+if [[ "$require_network" == "y" || "$require_network" == "Y" ]]; then
+    network_config="After=network.target\nWants=network.target"
+fi
+
 # 构建服务文件内容
 service_content="[Unit]
 Description=${service_name} service
-After=network.target syslog.target
-Wants=network.target
+${network_config}
 
 [Service]
 Type=simple
