@@ -7,8 +7,8 @@ PROXY_HOST="http://192.168.1.102:7890"
 set_proxy() {
     export http_proxy=$PROXY_HOST
     export https_proxy=$PROXY_HOST
-    git config --global http.proxy http://192.168.1.102:7890
-    git config --global https.proxy https://192.168.1.102:7890
+    git config --global http.proxy $PROXY_HOST
+    git config --global https.proxy $PROXY_HOST
     echo "代理已设置：$PROXY_HOST"
 }
 
