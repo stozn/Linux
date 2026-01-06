@@ -16,7 +16,6 @@ echo 'channels:
 show_channel_urls: true
 default_channels: 
   - https://mirrors.sustech.edu.cn/anaconda/pkgs/main 
-  - https://mirrors.sustech.edu.cn/anaconda/pkgs/free 
   - https://mirrors.sustech.edu.cn/anaconda/pkgs/r 
   - https://mirrors.sustech.edu.cn/anaconda/pkgs/pro 
   - https://mirrors.sustech.edu.cn/anaconda/pkgs/msys2 
